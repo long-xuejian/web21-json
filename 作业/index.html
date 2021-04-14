@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 1.6rem;
+			}
+
+			.wode{
+				height: 15rem;
+				padding: 0.5rem 0.5rem;
+			}
+			.div0 {
+				float: left;
+				width: 18rem;
+				height: 15rem;
+			}
+			.div1 {
+				float: right;
+				width: 18rem;
+				height: 15rem;
+			}
+			.div0 div {
+				width: 18rem;
+				height: 15rem;
+			}
+			.div1 div {
+				width: 18rem;
+				height: 15rem;
+			}
+
+		</style>
+	</head>
+	<body bgcolor="red">
+		<div class="wode" id="id">
+			
+		</div>
+		<p style="text-align: center;margin-top: 5rem;color: grey;">没有更多了~ ~</p>
+		<script>
+			window.onload = function() {
+				var w = document.documentElement.getBoundingClientRect().width;
+				var bili = w / 37.5;
+				document.documentElement.style.fontSize = bili + "px";
+
+				var xhr = new XMLHttpRequest();
+				xhr.open("get",
+					"https://www.nanzhan-info.com:1156/api/Matchs/GetMatchsVideos?isRecommend=0&pagination.rows=10&pagination.page=1&pagination.sidx=MRelation_CreateTime&pagination.sord=asc&pagination.records=20"
+				)
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var json = JSON.parse(this.responseText)
+						console.log(json)
+						var html = ""
+						for (var un in json) {
+							html +=
+								`<div class="div`+ un +`">
+									<div>
+										<img src="https://www.nanzhan-info.com:18013/${json[un].MRelation_VideoSmallPic}" alt="">
+									</div>
+									<p>${json[un].MRelation_Title}</p>
+								</div>
+								`
+						}
+						var id = document.getElementById("id");
+						id.innerHTML = html;
+					}
+				}
+			};
+		</script>
+	</body>
+</html>

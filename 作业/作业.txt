@@ -1,0 +1,16 @@
+作业：
+
+1、注册github账号密码
+通过git bash命令行的方式，先在线上（github.com）这里新建一个自己的项目，然后将其clone到本地，在本地添加修改代码，通过git命令行的方式提交到线上（远程库）
+（指令和操作过程同码云一样）
+
+2、完成以下作业，然后通过码云提交给我
+    json地址：
+    https://www.nanzhan-info.com:1156/api/Matchs/GetMatchsVideos?isRecommend=0&pagination.rows=10&pagination.page=1&pagination.sidx=MRelation_CreateTime&pagination.sord=asc&pagination.records=20
+    具体见效果图：
+
+    提交到如下地址：
+    https://github.com/kouok/web21-json
+    提示：（跟场景3一样）
+    先fork，变成你的后再通过命令行操作
+    最后还是要像码云那样在github中创建request来给我提交资源
